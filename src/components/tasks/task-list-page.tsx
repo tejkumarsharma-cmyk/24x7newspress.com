@@ -41,7 +41,7 @@ const variantShells = {
 } as const
 
 export async function TaskListPage({ task, category }: { task: TaskKey; category?: string }) {
-  if (TASK_LIST_PAGE_OVERRIDE_ENABLED) {
+  if (TASK_LIST_PAGE_OVERRIDE_ENABLED && task === 'mediaDistribution') {
     return await TaskListPageOverride({ task, category })
   }
 
