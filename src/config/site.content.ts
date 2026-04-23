@@ -2,80 +2,84 @@ import type { TaskKey } from '@/lib/site-config'
 
 export const siteContent = {
   navbar: {
-    tagline: 'Independent news desk',
+    tagline: 'Press intelligence desk',
   },
   footer: {
-    tagline: 'Simple publishing for press-style updates',
+    tagline: 'Distribution, clarity, and measurable media reach',
   },
   hero: {
-    badge: 'Latest updates',
-    title: ['Clear publishing, simple reading, no extra noise.'],
+    badge: 'Press release wire',
+    title: ['Stories that move markets, industries, and search results.'],
     description:
-      'A minimal article-style publishing template built for regular updates, announcements, and media distribution posts.',
+      '24x7newspress.com is built for professional announcements: multichannel distribution, editorial presentation, and discovery tools for journalists and investors—without the clutter of generic content templates.',
     primaryCta: {
-      label: 'Browse latest posts',
+      label: 'Open press room',
       href: '/updates',
     },
     secondaryCta: {
-      label: 'Contact us',
-      href: '/contact',
+      label: 'View pricing',
+      href: '/pricing',
     },
-    searchPlaceholder: 'Search posts',
-    focusLabel: 'Latest',
-    featureCardBadge: 'editor note',
-    featureCardTitle: 'Recent updates appear directly on the homepage.',
+    searchPlaceholder: 'Search releases and topics',
+    focusLabel: 'Newsworthy',
+    featureCardBadge: 'Why teams choose us',
+    featureCardTitle: 'A distribution surface that reads like a premium wire, not a blog theme.',
     featureCardDescription:
-      'The homepage works as a clean front page so new posts stay visible without decorative sections getting in the way.',
+      'Structured release pages, stronger metadata, and a homepage rhythm modeled on leading press portals—tuned to your media workflow.',
   },
   home: {
     metadata: {
-      title: 'Latest updates and newsroom posts',
+      title: '24x7newspress.com — press releases and industry news',
       description:
-        'Read the latest updates, announcements, and stories through a simple archive-first publishing experience.',
-      openGraphTitle: 'Latest updates and newsroom posts',
+        'Read and distribute company announcements, earnings notes, and sector updates through a clean press-room experience.',
+      openGraphTitle: '24x7newspress.com — press releases and industry news',
       openGraphDescription:
-        'A simple publishing template for updates, announcements, and readable article pages.',
-      keywords: ['newsroom posts', 'latest updates', 'announcements', 'press articles'],
+        'Professional press distribution with editorial layouts, search, and topic discovery.',
+      keywords: [
+        'press releases',
+        'media distribution',
+        'earnings',
+        'public relations',
+        'company news',
+        'PRnews18',
+      ],
     },
-    introBadge: 'About',
-    introTitle: 'A quiet publishing template made for regular updates.',
+    introBadge: 'What we are',
+    introTitle: 'Media-grade publishing for modern communications teams.',
     introParagraphs: [
-      'This template is designed for sites that publish straightforward updates and want the homepage to behave like a clean front page rather than a product landing page.',
-      'Posts are visible immediately, archives stay easy to scan, and the reading page keeps the focus on the article itself.',
-      'The interface is intentionally simple so the site feels usable, familiar, and fast to update.',
+      '24x7newspress.com focuses on press content: announcements, statements, and updates that need discoverability, attribution, and a credible reading experience.',
+      'The interface separates promotion from information—so audiences see clear headlines, datelines, and source context first.',
     ],
-    sideBadge: 'What it prioritizes',
+    sideBadge: 'On every page',
     sidePoints: [
-      'Recent posts directly on the homepage.',
-      'Simple archive layout with sidebar search and recent items.',
-      'Readable article pages without comments or extra modules.',
-      'A publishing-first structure that stays easy to maintain.',
+      'Wire-style detail pages for each release.',
+      'Topic and category tools for quick scanning.',
+      'Newsletter-ready summaries without rebuilding layouts.',
     ],
     primaryLink: {
-      label: 'Open archive',
+      label: 'Browse releases',
       href: '/updates',
     },
     secondaryLink: {
-      label: 'Contact desk',
+      label: 'Talk to editorial',
       href: '/contact',
     },
   },
   cta: {
-    badge: 'Get in touch',
-    title: 'Use this template when publishing regular updates matters more than visual effects.',
-    description:
-      'A straightforward layout for announcements, media coverage, partner updates, and newsroom-style content.',
+    badge: 'Ready when you are',
+    title: 'When your next announcement matters, the presentation should match the moment.',
+    description: 'From listing pages to long-form body copy, 24x7newspress.com keeps the story readable on every screen.',
     primaryCta: {
-      label: 'Contact us',
+      label: 'Contact the desk',
       href: '/contact',
     },
     secondaryCta: {
-      label: 'View archive',
+      label: 'Read latest',
       href: '/updates',
     },
   },
-  taskSectionHeading: 'Latest posts',
-  taskSectionDescriptionSuffix: 'Read the newest published updates.',
+  taskSectionHeading: 'Latest from the wire',
+  taskSectionDescriptionSuffix: 'Updated as new releases are published.',
 } as const
 
 export const taskPageMetadata: Record<Exclude<TaskKey, 'comment' | 'org' | 'social'>, { title: string; description: string }> = {
@@ -108,8 +112,8 @@ export const taskPageMetadata: Record<Exclude<TaskKey, 'comment' | 'org' | 'soci
     description: 'Open PDFs and downloadable files.',
   },
   mediaDistribution: {
-    title: 'Latest updates',
-    description: 'Read the latest published updates and announcements.',
+    title: 'Press room',
+    description: 'Filter by topic, search headlines, and open full press releases.',
   },
 }
 
@@ -128,10 +132,10 @@ export const taskIntroCopy: Record<
   comment: { title: 'Comments', paragraphs: ['Commentary and response posts.'], links: [{ label: 'Home', href: '/' }] },
   org: { title: 'Organizations', paragraphs: ['Organization pages and entities.'], links: [{ label: 'Home', href: '/' }] },
   mediaDistribution: {
-    title: 'Latest updates',
+    title: 'Press room archive',
     paragraphs: [
-      'This archive is designed for straightforward publishing: regular updates, announcements, and media-style posts presented in a clean reading format.',
-      'The layout stays simple so visitors can scan headlines quickly, open stories easily, and move through the archive without distraction.',
+      'Scan releases by category, search by keyword, and open the full text when you need quotes, figures, and contacts.',
+      'Datelines, summaries, and tags stay visible so you can triage what matters in seconds.',
     ],
     links: [
       { label: 'Home', href: '/' },

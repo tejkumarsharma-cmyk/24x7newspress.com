@@ -21,11 +21,11 @@ function getLoginConfig(kind: ReturnType<typeof getProductKind>) {
   }
   if (kind === 'editorial') {
     return {
-      shell: 'bg-[#fbf6ee] text-[#241711]',
-      panel: 'border border-[#dcc8b7] bg-[#fffdfa]',
-      side: 'border border-[#e6d6c8] bg-[#fff4e8]',
-      muted: 'text-[#6e5547]',
-      action: 'bg-[#241711] text-[#fff1e2] hover:bg-[#3a241b]',
+      shell: 'bg-[radial-gradient(ellipse_75%_55%_at_12%_0%,rgba(54,6,77,0.12),transparent_58%),radial-gradient(ellipse_58%_45%_at_100%_0%,rgba(218,72,72,0.1),transparent_52%),linear-gradient(180deg,#f4f0f7_0%,#faf7fc_48%,#ffffff_100%)] text-[#1a0f24]',
+      panel: 'border border-[#36064d]/12 bg-white',
+      side: 'border border-[#36064d]/12 bg-[#f8f3fb]',
+      muted: 'text-[#5c4d6a]',
+      action: 'bg-[#da4848] text-white hover:bg-[#c23d3d]',
       icon: FileText,
       title: 'Sign in to your publication workspace',
       body: 'Draft, review, and publish long-form work with the calmer reading system intact.',

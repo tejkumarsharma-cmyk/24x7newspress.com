@@ -1,58 +1,71 @@
+import { Suspense } from 'react'
 import Link from 'next/link'
+import { FileText } from 'lucide-react'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
 import { fetchTaskPosts } from '@/lib/task-data'
+import { SITE_CONFIG } from '@/lib/site-config'
+import { taskIntroCopy } from '@/config/site.content'
+import { PressReleaseGridClient } from '@/components/press/press-release-grid-client'
 import type { TaskKey } from '@/lib/site-config'
 
 export const TASK_LIST_PAGE_OVERRIDE_ENABLED = true
 
-function excerpt(text?: string | null) {
-  const value = (text || '').trim()
-  if (!value) return 'Read the full post for the complete update.'
-  return value.length > 220 ? value.slice(0, 217).trimEnd() + '...' : value
-}
-
-export async function TaskListPageOverride(_: { task: TaskKey; category?: string }) {
-  const posts = await fetchTaskPosts('mediaDistribution', 24, { fresh: true })
-  const recent = posts.slice(0, 5)
+export async function TaskListPageOverride({ task, category }: { task: TaskKey; category?: string }) {
+  const posts = await fetchTaskPosts(task, 60, { fresh: false, revalidate: 60 })
+  const intro = taskIntroCopy[task]
+  const base = SITE_CONFIG.baseUrl.replace(/\/$/, '')
+  const taskConfig = SITE_CONFIG.tasks.find((t) => t.key === task)
+  const cat = category || ''
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900">
+    <div className="min-h-screen text-[#1a0f24]">
       <NavbarShell />
-      <main className="mx-auto grid max-w-6xl gap-12 px-4 py-10 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px]">
-        <div className="space-y-14">
-          {posts.map((post) => (
-            <article key={post.id} className="border-b border-neutral-200 pb-12">
-              <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-neutral-500">{String((post.content as any)?.category || 'Update')}</p>
-              <h1 className="mx-auto mt-3 max-w-4xl text-center text-3xl font-black uppercase leading-tight tracking-[0.02em] sm:text-4xl">{post.title}</h1>
-              <div className="mt-4 flex items-center justify-center gap-3 text-sm text-neutral-500">
-                <span className="bg-neutral-800 px-3 py-1 text-white">{new Date(post.publishedAt || Date.now()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                <span>by {post.authorName || 'Editorial Desk'}</span>
+      <main>
+        <section className="border-b border-[#36064d]/8 bg-gradient-to-b from-white to-[#f6f1fa]">
+          <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#da4848]">Archive</p>
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{taskConfig?.label || 'Press room'}</h1>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5c4d6a]">
+              {taskConfig?.description}
+            </p>
+            {intro ? (
+              <div className="mt-6 max-w-2xl text-sm text-[#5c4d6a]">
+                {intro.paragraphs.map((p) => (
+                  <p key={p.slice(0, 32)} className="mt-2 first:mt-0">
+                    {p}
+                  </p>
+                ))}
+                <div className="mt-4 flex flex-wrap gap-4">
+                  {intro.links.map((l) => (
+                    <Link key={l.href} href={l.href} className="font-semibold text-[#da4848] hover:underline">
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-neutral-700">{excerpt(post.summary)}</p>
-              <div className="mt-8 text-center">
-                <Link href={`/updates/${post.slug}`} className="inline-flex rounded-full bg-neutral-800 px-8 py-3 text-sm font-medium text-white hover:bg-black">Continue Reading</Link>
-              </div>
-            </article>
-          ))}
+            ) : null}
+            <div className="mt-8 flex flex-wrap gap-2 text-sm">
+              <Link
+                href={`${base}/updates`}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#36064d]/15 bg-white px-3 py-2 text-[#36064d]"
+              >
+                <FileText className="h-4 w-4" />
+                All releases
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+          <Suspense
+            fallback={
+              <p className="text-sm text-[#5c4d6a]">Loading the release grid…</p>
+            }
+          >
+            <PressReleaseGridClient task={task} posts={posts} initialCategory={cat} />
+          </Suspense>
         </div>
-        <aside className="space-y-6">
-          <div className="border border-neutral-200 p-6">
-            <div className="flex items-center gap-0">
-              <input className="h-12 flex-1 border border-neutral-200 px-4 text-sm outline-none" placeholder="Type here to search" />
-              <button className="flex h-12 w-12 items-center justify-center bg-neutral-800 text-white">Q</button>
-            </div>
-          </div>
-          <div className="border border-neutral-200 p-6">
-            <div className="space-y-5">
-              {recent.map((post) => (
-                <Link key={post.id} href={`/updates/${post.slug}`} className="block border-b border-neutral-200 pb-5 last:border-b-0 last:pb-0">
-                  <p className="text-base leading-7 text-neutral-700">{post.title}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </aside>
       </main>
       <Footer />
     </div>
