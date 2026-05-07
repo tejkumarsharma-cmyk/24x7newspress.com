@@ -113,12 +113,6 @@ export async function HomePageOverride() {
                 {siteContent.hero.primaryCta.label}
                 <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                href={siteContent.hero.secondaryCta.href}
-                className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/10"
-              >
-                {siteContent.hero.secondaryCta.label}
-              </Link>
             </div>
             <div className="pr-motion-rise pr-motion-delay-4 mt-12 grid max-w-lg gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/15 bg-white/5 p-4">
