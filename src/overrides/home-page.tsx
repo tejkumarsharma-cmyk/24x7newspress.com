@@ -70,7 +70,7 @@ function getPostImage(post: SitePost) {
 
 function getCategory(post: SitePost) {
   const c = post.content && typeof post.content === 'object' ? (post.content as { category?: string }).category : ''
-  return typeof c === 'string' && c.trim() ? c.trim() : 'Press release'
+  return typeof c === 'string' && c.trim() ? c.trim() : 'Press wire'
 }
 
 export async function HomePageOverride() {
@@ -128,7 +128,7 @@ export async function HomePageOverride() {
               </div>
               <div className="rounded-2xl border border-white/15 bg-white/5 p-4">
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-white/60">Also explore</p>
-                <p className="mt-1 text-sm text-white/80">Pricing, company, and help stay one click away in the main navigation.</p>
+                <p className="mt-1 text-sm text-white/80">Company and help stay one click away in the main navigation.</p>
                 <Link href="/search" className="mt-3 inline-flex text-sm font-semibold text-[#fecdd3] hover:text-white">
                   Open search
                 </Link>
@@ -177,9 +177,6 @@ export async function HomePageOverride() {
                 <h2 className="text-3xl font-semibold tracking-tight text-[#1a0f24]">Featured solutions</h2>
                 <p className="mt-2 max-w-2xl text-sm text-[#5c4d6a]">How teams use {SITE_CONFIG.name} to structure outbound communications and on-site reading.</p>
               </div>
-              <Link href="/pricing" className="text-sm font-semibold text-[#b83838] hover:underline">
-                Compare plans
-              </Link>
             </div>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {solutions.map(({ title, body, icon: Icon }) => (
@@ -328,7 +325,7 @@ export async function HomePageOverride() {
           <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
-                <h2 className="text-2xl font-semibold sm:text-3xl">Receive monthly trending press releases and industry news</h2>
+                <h2 className="text-2xl font-semibold sm:text-3xl">Receive monthly trending press wire and industry news</h2>
                 <p className="mt-3 text-sm text-white/75">No clutter—one concise digest with what moved markets and why it matters. Unsubscribe any time.</p>
               </div>
               <NewsletterCta />

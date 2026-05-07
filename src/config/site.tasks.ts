@@ -3,7 +3,7 @@ export const siteTaskDefinitions = [
     key: 'mediaDistribution',
     label: 'Press room',
     route: '/updates',
-    description: 'Latest press releases, filings, and media updates in one scannable feed.',
+    description: 'Latest press wire, filings, and media updates in one scannable feed.',
     contentType: 'mediaDistribution',
     enabled: true,
   },

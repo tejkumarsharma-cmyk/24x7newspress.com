@@ -63,10 +63,7 @@ export default function AboutPage() {
             Whether you publish quarterly or every week, the same system keeps your archive coherent—no mismatched
             sidebars, no recycled directory chrome.
           </p>
-          <p className="mt-4 text-sm text-[#5c4d6a]">
-            Need pricing or onboarding? <Link className="font-semibold text-[#da4848] hover:underline" href="/pricing">View plans</Link>
-            {' '}or <Link className="font-semibold text-[#da4848] hover:underline" href="/updates">open the press room</Link>.
-          </p>
+
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#e8dff0]">
           <Image

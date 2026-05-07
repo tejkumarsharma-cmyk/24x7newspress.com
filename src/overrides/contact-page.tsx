@@ -1,4 +1,3 @@
-import { Clock, MapPin, Phone } from 'lucide-react'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
 import { SITE_CONFIG } from '@/lib/site-config'
@@ -70,48 +69,7 @@ export function ContactPageOverride() {
                 For {SITE_CONFIG.name} accounts and new distribution inquiries, email is the fastest path.
               </p>
             </div>
-            <div className="space-y-4">
-              {[
-                {
-                  icon: Phone,
-                  title: 'Toll-free',
-                  body: '+1 (800) 000-0000',
-                  sub: 'North America, English',
-                },
-                {
-                  icon: Clock,
-                  title: 'Live hours',
-                  body: 'Mon–Fri, 7:00–19:00 ET',
-                  sub: 'Holiday coverage for urgent material',
-                },
-                {
-                  icon: MapPin,
-                  title: 'Correspondence',
-                  body: 'U.S. mailing address on request for contracts',
-                  sub: 'We operate primarily digital-first',
-                },
-              ].map((row) => (
-                <div
-                  key={row.title}
-                  className="flex gap-4 rounded-2xl border border-[#e8dff0] bg-white/90 p-5"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#f3eff8] text-[#da4848]">
-                    <row.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-[#5c4d6a]">{row.title}</p>
-                    <p className="mt-1 font-medium text-[#1a0f24]">{row.body}</p>
-                    <p className="mt-0.5 text-sm text-[#5c4d6a]">{row.sub}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-[#5c4d6a]">
-              <strong>Email:</strong>{' '}
-              <a href="mailto:desk@24x7newspress.com" className="font-semibold text-[#da4848] hover:underline">
-                desk@24x7newspress.com
-              </a>
-            </p>
+
           </div>
         </div>
       </main>

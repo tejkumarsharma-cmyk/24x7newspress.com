@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FileText, HelpCircle, Mail, Search } from 'lucide-react'
+import { FileText, HelpCircle, Search } from 'lucide-react'
 import { SITE_CONFIG } from '@/lib/site-config'
 import { siteContent } from '@/config/site.content'
 
@@ -10,7 +10,6 @@ const cols = (primaryHref: string, primaryLabel: string) => [
     title: 'Press distribution',
     links: [
       { label: 'Press room', href: primaryHref },
-      { label: 'Pricing', href: '/pricing' },
       { label: 'Search stories', href: '/search' },
     ],
   },
@@ -45,7 +44,7 @@ export function FooterOverride() {
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-xs font-bold">18</span>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-xs font-bold">24</span>
               <div>
                 <p className="text-lg font-semibold">{SITE_CONFIG.name}</p>
                 <p className="text-xs text-white/55">{siteContent.footer.tagline}</p>
@@ -54,13 +53,7 @@ export function FooterOverride() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">
               {SITE_CONFIG.description}
             </p>
-            <div className="mt-5 space-y-2 text-sm text-white/75">
-              <span className="inline-flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[#da4848]" />
-                <a href="mailto:desk@24x7newspress.com" className="hover:text-white">desk@24x7newspress.com</a>
-              </span>
-            </div>
-            <p className="mt-2 text-xs text-white/50">Use Contact for media-specific routing.</p>
+
           </div>
           {cols(primaryHref, primaryLabel).map((col) => (
             <div key={col.title}>

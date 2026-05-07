@@ -14,7 +14,6 @@ export const NAVBAR_OVERRIDE_ENABLED = true
 
 const mainNav = [
   { label: 'Press room', href: '/updates' },
-  { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const
@@ -49,7 +48,7 @@ export function NavbarOverride() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link href="/" className="group flex min-w-0 items-center gap-3">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/10 text-sm font-bold tracking-tight text-white">
-            18
+            24
           </span>
           <span className="min-w-0 text-left">
             <span className="block truncate text-lg font-semibold leading-tight tracking-tight sm:text-xl">{SITE_CONFIG.name}</span>
@@ -73,14 +72,6 @@ export function NavbarOverride() {
               </Link>
             )
           })}
-          {primary ? (
-            <Link
-              href={primary.route}
-              className="ml-2 inline-flex items-center gap-1.5 rounded-full border border-white/30 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90 transition hover:border-white/50"
-            >
-              {primary.label}
-            </Link>
-          ) : null}
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -117,11 +108,6 @@ export function NavbarOverride() {
                 {item.label}
               </Link>
             ))}
-            {primary ? (
-              <Link href={primary.route} className="rounded-lg px-3 py-3 text-sm font-semibold text-[#fecaca]" onClick={() => setOpen(false)}>
-                {primary.label}
-              </Link>
-            ) : null}
             <Link href="/search" className="rounded-lg px-3 py-3 text-sm" onClick={() => setOpen(false)}>Search</Link>
             <Button asChild className="mt-2 w-full rounded-full bg-[#da4848] text-white">
               <Link href="/contact" onClick={() => setOpen(false)}>Submit news</Link>

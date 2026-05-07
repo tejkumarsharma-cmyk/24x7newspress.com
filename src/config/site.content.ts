@@ -29,14 +29,14 @@ export const siteContent = {
   },
   home: {
     metadata: {
-      title: '24x7newspress.com — press releases and industry news',
+      title: '24x7newspress.com — press wire and industry news',
       description:
         'Read and distribute company announcements, earnings notes, and sector updates through a clean press-room experience.',
-      openGraphTitle: '24x7newspress.com — press releases and industry news',
+      openGraphTitle: '24x7newspress.com — press wire and industry news',
       openGraphDescription:
         'Professional press distribution with editorial layouts, search, and topic discovery.',
       keywords: [
-        'press releases',
+        'press wire',
         'media distribution',
         'earnings',
         'public relations',
@@ -113,7 +113,7 @@ export const taskPageMetadata: Record<Exclude<TaskKey, 'comment' | 'org' | 'soci
   },
   mediaDistribution: {
     title: 'Press room',
-    description: 'Filter by topic, search headlines, and open full press releases.',
+    description: 'Filter by topic, search headlines, and open full press wire.',
   },
 }
 

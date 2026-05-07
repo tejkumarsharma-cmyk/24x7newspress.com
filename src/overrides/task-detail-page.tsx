@@ -50,10 +50,6 @@ export async function TaskDetailPageOverride({ task, slug }: { task: TaskKey; sl
   const pageUrl = `${base}/updates/${post.slug}`
   const images = getImageUrls(post)
   const leadImage = images[0]
-  const date = post.publishedAt
-    ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    : null
-
   const imageForSchema = leadImage
     ? [leadImage.startsWith('http') ? leadImage : `${base}${leadImage}`]
     : [`${base}${SITE_CONFIG.defaultOgImage}`]
@@ -87,7 +83,6 @@ export async function TaskDetailPageOverride({ task, slug }: { task: TaskKey; sl
           <h1 className="text-3xl font-semibold leading-[1.15] tracking-tight sm:text-4xl lg:text-[2.4rem]">{post.title}</h1>
           {subtitle ? <p className="mt-4 text-lg text-[#5c4d6a] sm:text-xl">{subtitle}</p> : null}
           <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-[#5c4d6a]">
-            {date ? <span className="rounded-md bg-[#f3eff8] px-2.5 py-0.5 font-medium text-[#36064d]">{date}</span> : null}
             <span>By {post.authorName || 'Editorial desk'}</span>
           </div>
           <div className="mt-6 border-t border-[#e8dff0] pt-5">

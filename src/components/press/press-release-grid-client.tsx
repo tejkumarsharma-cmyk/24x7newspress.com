@@ -193,12 +193,7 @@ export function PressReleaseGridClient({ posts, task, initialCategory }: Props) 
                     </div>
                   </div>
                   <div className="flex flex-1 flex-col p-4">
-                    <p className="text-[11px] text-[#5c4d6a]">
-                      {post.publishedAt
-                        ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-                        : ''}
-                    </p>
-                    <h2 className="mt-1 font-[family-name:var(--font-display)] text-lg font-semibold leading-snug text-[#1a0f24] group-hover:text-[#da4848]">
+                    <h2 className="font-[family-name:var(--font-display)] text-lg font-semibold leading-snug text-[#1a0f24] group-hover:text-[#da4848]">
                       {post.title}
                     </h2>
                     {post.summary ? (
